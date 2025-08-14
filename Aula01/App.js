@@ -1,66 +1,81 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
+import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
+import { SafeAreaView, } from 'react-native-safe-area-context';
 
 export default function App() {
   return (
-    
-      <SafeAreaView style={estilos.container}>
-        <ScrollView style={estilos.scroll}>
-          
-          <View style={estilos.header}>
-            <View style={estilos.circulo}></View>
-            <View>
-              <Text style={estilos.titulo}>Olá, Estudante</Text>
-              <Text>Bem-vindo ao seu painel</Text>
-            </View>
-          </View>
-          
-          <Text style={estilos.secao}>Menu</Text>
-          <View style={estilos.botoes}>
-            <View style={estilos.botao}>
-              <Text style={estilos.textoBotao}>NOTAS</Text>
-            </View>
-            <View style={estilos.botao}>
-              <Text style={estilos.textoBotao}>AULAS</Text>
-            </View>
-            <View style={estilos.botao}>
-              <Text style={estilos.textoBotao}>AVISOS</Text>
-            </View>
-          </View>
-          
-          <Text style={estilos.secao}>Próximas atividades</Text>
-          
-          <View style={estilos.card}>
-            <Text>Trabalho de Matemática</Text>
-            <Text>Entrega: 20/08</Text>
-          </View>
 
-          <View style={estilos.card}>
-            <Text>Prova de Física (Importante)</Text>
-            <Text>Data: 22/08</Text>
-          </View>
+    <SafeAreaView style={estilos.container}>
+      <ScrollView style={estilos.scroll}>
 
-          <View style={estilos.card}>
-            <Text>Leitura de História</Text>
-            <Text>Cap. 3 e 4</Text>
-          </View>
-          
-          <Text style={estilos.secao}>Chamada para ação</Text>
-          
-          <View style={estilos.card}>
-            <Text>Adquira um novo curso e continue aprendendo!</Text>
-            <View style={estilos.botao}>
-              <Text style={estilos.textoBotao}>COMPRAR CURSO</Text>
-            </View>
-          </View>
+        <View style={estilos.header}>
 
-        </ScrollView>
-      </SafeAreaView>
-  
+          <Image
+            source={{ uri: 'https://cdn-icons-png.flaticon.com/512/5987/5987462.png' }}
+            style={estilos.circulo}
+          />
+
+
+          <View>
+            <Text style={estilos.titulo}>Olá, Aluno</Text>
+          </View>
+        </View>
+
+        <Text style={estilos.secao}>Menu</Text>
+        <View style={estilos.botoes}>
+          <View style={estilos.botao}>
+            <Text style={estilos.textoBotao}>NOTAS</Text>
+          </View>
+          <View style={estilos.botao}>
+            <Text style={estilos.textoBotao}>AULAS</Text>
+          </View>
+          <View style={estilos.botao}>
+            <Text style={estilos.textoBotao}>AVISOS</Text>
+          </View>
+        </View>
+
+        <Text style={estilos.secao}>Próximas atividades</Text>
+
+        <View style={estilos.atividades}>
+          <Text>Trabalho de Matemática</Text>
+          <Text>Entrega: 20/08</Text>
+        </View>
+
+        <View style={estilos.atividades}>
+          <Text>Prova de Física (Importante)</Text>
+          <Text>Data: 22/08</Text>
+        </View>
+
+        <View style={estilos.atividades}>
+          <Text>Leitura de História</Text>
+          <Text>Cap. 3 e 4</Text>
+        </View>
+
+        <View style={estilos.atividades}>
+          <Text>Leitura de História</Text>
+          <Text>Cap. 5 e 6</Text>
+        </View>
+
+        <View style={estilos.atividades}>
+          <Text>Leitura de História</Text>
+          <Text>Cap. 7 e 8</Text>
+        </View>
+
+        <View style={estilos.atividades}>
+          <Text>Leitura de História</Text>
+          <Text>Cap. 9 e 10</Text>
+        </View>
+
+        <View >
+          <View style={estilos.botao}>
+            <Text style={estilos.textoBotao}>COMPRAR CURSO</Text>
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+
   );
 }
-
 const estilos = StyleSheet.create({
   container: {
     flex: 1,
@@ -68,6 +83,11 @@ const estilos = StyleSheet.create({
   },
   scroll: {
     padding: 20,
+  },
+  atividades: {
+    backgroundColor: 'white',
+    padding: 15,
+    marginBottom: 10,
   },
   titulo: {
     fontSize: 24,
@@ -83,7 +103,6 @@ const estilos = StyleSheet.create({
   circulo: {
     width: 50,
     height: 50,
-    backgroundColor: '#ddd',
     borderRadius: 25,
   },
   secao: {
@@ -97,7 +116,7 @@ const estilos = StyleSheet.create({
     gap: 10,
   },
   botao: {
-    backgroundColor: '#007bff',
+    backgroundColor: '#040f1aff',
     padding: 10,
     borderRadius: 0,
     flex: 1,
@@ -106,11 +125,5 @@ const estilos = StyleSheet.create({
   textoBotao: {
     color: 'white',
     fontWeight: 'bold',
-  },
-  card: {
-    backgroundColor: 'white',
-    padding: 15,
-    marginBottom: 10,
-    borderRadius: 5,
   },
 });
