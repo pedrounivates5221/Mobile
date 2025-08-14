@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image,Button,Alert } from 'react-native';
 import { SafeAreaView, } from 'react-native-safe-area-context';
 
 export default function App() {
@@ -11,8 +11,7 @@ export default function App() {
         <View style={estilos.header}>
 
           <Image
-            source={{ uri: 'https://cdn-icons-png.flaticon.com/512/5987/5987462.png' }}
-            style={estilos.circulo}
+            source={{ uri: 'https://cdn-icons-png.flaticon.com/512/5987/5987462.png' }} style={estilos.imagem}
           />
 
 
@@ -67,8 +66,15 @@ export default function App() {
         </View>
 
         <View >
-          <View style={estilos.botao}>
-            <Text style={estilos.textoBotao}>COMPRAR CURSO</Text>
+          <View>
+
+<Button
+          title="Press me"
+          color="#0a0a0aff"
+          accessibilityLabel="Botão"
+          onPress={() => Alert.alert('Teste')}
+        />
+
           </View>
         </View>
       </ScrollView>
@@ -76,6 +82,8 @@ export default function App() {
 
   );
 }
+      
+
 const estilos = StyleSheet.create({
   container: {
     flex: 1,
@@ -100,10 +108,11 @@ const estilos = StyleSheet.create({
     marginBottom: 20,
     gap: 15,
   },
-  circulo: {
+  imagem: {
     width: 50,
     height: 50,
     borderRadius: 25,
+       borderWidth: 5,
   },
   secao: {
     fontSize: 18,
@@ -118,7 +127,7 @@ const estilos = StyleSheet.create({
   botao: {
     backgroundColor: '#040f1aff',
     padding: 10,
-    borderRadius: 0,
+    borderRadius: 25,
     flex: 1,
     alignItems: 'center',
   },
