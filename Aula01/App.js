@@ -6,7 +6,7 @@ export default function App() {
   return (
     <SafeAreaView style={estilos.container}>
       
-      {/* Barra Superior */}
+     
       <View style={estilos.barraSuperior}>
         <Text style={estilos.titulo}>Quadro de Tarefas</Text>
         <Text style={estilos.subtitulo}>Gerencie suas atividades</Text>
@@ -55,7 +55,6 @@ export default function App() {
           </View>
         </View>
 
-        {/* Coluna: Concluído */}
         <View style={estilos.coluna}>
           <Text style={estilos.tituloColuna}>Concluído</Text>
           
