@@ -1,85 +1,82 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image,Button,Alert } from 'react-native';
-import { SafeAreaView, } from 'react-native-safe-area-context';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function App() {
   return (
-
     <SafeAreaView style={estilos.container}>
-      <ScrollView style={estilos.scroll}>
+      
+      {/* Barra Superior */}
+      <View style={estilos.barraSuperior}>
+        <Text style={estilos.titulo}>Quadro de Tarefas</Text>
+        <Text style={estilos.subtitulo}>Gerencie suas atividades</Text>
+      </View>
 
-        <View style={estilos.header}>
-
-          <Image
-            source={{ uri: 'https://cdn-icons-png.flaticon.com/512/5987/5987462.png' }} style={estilos.imagem}
-          />
-
-
-          <View>
-            <Text style={estilos.titulo}>Olá, Aluno</Text>
+    
+      <ScrollView 
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        style={estilos.quadro}
+        contentContainerStyle={estilos.quadroContent}
+      >
+        
+       
+        <View style={estilos.coluna}>
+          <Text style={estilos.tituloColuna}>A Fazer</Text>
+          
+          <View style={estilos.cartao}>
+            <Text style={estilos.tituloCartao}>Estudar React Native</Text>
+            <Text style={estilos.descricaoCartao}>Revisar componentes básicos</Text>
+          </View>
+          
+          <View style={estilos.cartao}>
+            <Text style={estilos.tituloCartao}>Fazer exercícios</Text>
+            <Text style={estilos.descricaoCartao}>Matemática cap. 5</Text>
+          </View>
+          
+          <View style={estilos.cartao}>
+            <Text style={estilos.tituloCartao}>Ler livro</Text>
+            <Text style={estilos.descricaoCartao}>História do Brasil</Text>
           </View>
         </View>
 
-        <Text style={estilos.secao}>Menu</Text>
-        <View style={estilos.botoes}>
-          <View style={estilos.botao}>
-            <Text style={estilos.textoBotao}>NOTAS</Text>
+        {/* Coluna: Em Progresso */}
+        <View style={estilos.coluna}>
+          <Text style={estilos.tituloColuna}>Em Progresso</Text>
+          
+          <View style={estilos.cartao}>
+            <Text style={estilos.tituloCartao}>Projeto Mobile</Text>
+            <Text style={estilos.descricaoCartao}>App de tarefas</Text>
           </View>
-          <View style={estilos.botao}>
-            <Text style={estilos.textoBotao}>AULAS</Text>
-          </View>
-          <View style={estilos.botao}>
-            <Text style={estilos.textoBotao}>AVISOS</Text>
-          </View>
-        </View>
-
-        <Text style={estilos.secao}>Próximas atividades</Text>
-
-        <View style={estilos.atividades}>
-          <Text>Trabalho de Matemática</Text>
-          <Text>Entrega: 20/08</Text>
-        </View>
-
-        <View style={estilos.atividades}>
-          <Text>Prova de Física (Importante)</Text>
-          <Text>Data: 22/08</Text>
-        </View>
-
-        <View style={estilos.atividades}>
-          <Text>Leitura de História</Text>
-          <Text>Cap. 3 e 4</Text>
-        </View>
-
-        <View style={estilos.atividades}>
-          <Text>Leitura de História</Text>
-          <Text>Cap. 5 e 6</Text>
-        </View>
-
-        <View style={estilos.atividades}>
-          <Text>Leitura de História</Text>
-          <Text>Cap. 7 e 8</Text>
-        </View>
-
-        <View style={estilos.atividades}>
-          <Text>Leitura de História</Text>
-          <Text>Cap. 9 e 10</Text>
-        </View>
-
-        <View >
-          <View>
-
-<Button
-          title="Press me"
-          color="#0a0a0aff"
-          accessibilityLabel="Botão"
-          onPress={() => Alert.alert('Teste')}
-        />
-
+          
+          <View style={estilos.cartao}>
+            <Text style={estilos.tituloCartao}>Trabalho de Física</Text>
+            <Text style={estilos.descricaoCartao}>Relatório pendente</Text>
           </View>
         </View>
+
+        {/* Coluna: Concluído */}
+        <View style={estilos.coluna}>
+          <Text style={estilos.tituloColuna}>Concluído</Text>
+          
+          <View style={estilos.cartao}>
+            <Text style={estilos.tituloCartao}>Prova de Matemática</Text>
+            <Text style={estilos.descricaoCartao}>Nota: 9.5</Text>
+          </View>
+          
+          <View style={estilos.cartao}>
+            <Text style={estilos.tituloCartao}>Leitura Cap. 1-3</Text>
+            <Text style={estilos.descricaoCartao}>História completa</Text>
+          </View>
+          
+          <View style={estilos.cartao}>
+            <Text style={estilos.tituloCartao}>Setup do projeto</Text>
+            <Text style={estilos.descricaoCartao}>Expo configurado</Text>
+          </View>
+        </View>
+
       </ScrollView>
     </SafeAreaView>
-
   );
 }
       
@@ -87,52 +84,67 @@ export default function App() {
 const estilos = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#f5f5f5',
   },
-  scroll: {
+  barraSuperior: {
+    backgroundColor: '#007bff',
     padding: 20,
-  },
-  atividades: {
-    backgroundColor: 'white',
-    padding: 15,
-    marginBottom: 10,
+    paddingTop: 10,
   },
   titulo: {
     fontSize: 24,
     fontWeight: 'bold',
+    color: 'white',
     marginBottom: 5,
   },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 20,
-    gap: 15,
+  subtitulo: {
+    fontSize: 16,
+    color: '#e3f2fd',
   },
-  imagem: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-       borderWidth: 5,
+  quadro: {
+    flex: 1,
+    paddingVertical: 20,
   },
-  secao: {
+  quadroContent: {
+    paddingHorizontal: 20,
+  },
+  coluna: {
+    width: 280,
+    backgroundColor: '#e9ecef',
+    borderRadius: 10,
+    padding: 15,
+    marginRight: 15,
+    height: '90%',
+  },
+  tituloColuna: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginTop: 20,
+    color: '#333',
+    marginBottom: 15,
+    textAlign: 'center',
+    paddingBottom: 10,
+    borderBottomWidth: 2,
+    borderBottomColor: '#007bff',
+  },
+  cartao: {
+    backgroundColor: 'white',
+    borderRadius: 8,
+    padding: 15,
     marginBottom: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 3,
   },
-  botoes: {
-    flexDirection: 'row',
-    gap: 10,
-  },
-  botao: {
-    backgroundColor: '#040f1aff',
-    padding: 10,
-    borderRadius: 25,
-    flex: 1,
-    alignItems: 'center',
-  },
-  textoBotao: {
-    color: 'white',
+  tituloCartao: {
+    fontSize: 16,
     fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 5,
+  },
+  descricaoCartao: {
+    fontSize: 14,
+    color: '#666',
   },
 });
